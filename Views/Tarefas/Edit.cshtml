@@ -1,0 +1,60 @@
+﻿@model SistemaMVC.Models.Tarefas
+
+@{
+    ViewBag.Title = "Editar Tarefa";
+}
+
+<div class="conteudo">
+
+    <div class="jumbotron">
+        <h1>Editar tarefa</h1>
+        <p class="lead">Modifique os campos abaixo.</p>
+        <p><a class="btn btn-info" href="@Url.Action("Index", "Tarefas")">&laquo; Voltar</a></p>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeTarefa, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NomeTarefa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NomeTarefa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DescricaoTarefa, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DescricaoTarefa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DescricaoTarefa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataTarefa, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DataTarefa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DataTarefa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar"  class="btn btn-info" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

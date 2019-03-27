@@ -1,0 +1,51 @@
+﻿@model SistemaMVC.Models.Tarefas
+
+@{
+    ViewBag.Title = "Deletar Tarefa";
+}
+
+<div class="conteudo">
+
+    <div class="jumbotron">
+        <h1>Deletar tarefa</h1>
+        <p class="lead">Tem certeza que deseja deletar esta tarefa?</p>
+        <p><a class="btn btn-info" href="@Url.Action("Index", "Tarefas")">&laquo; Voltar</a></p>
+    </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeTarefa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NomeTarefa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DescricaoTarefa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DescricaoTarefa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataTarefa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataTarefa)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Deletar" class="btn btn-info" />
+            </div>
+        }
+    </div>
+

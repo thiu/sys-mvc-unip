@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SistemaMVC.Models.Tarefas>
+
+@{
+    ViewBag.Title = "Atrasadas";
+}
+
+<div class="conteudo">
+
+    <div class="jumbotron">
+        <h1>Tarefas atrasadas</h1>
+        <p class="lead">Visualize abaixo as tarefas com data vencida.</p>
+        <p><a class="btn btn-info" href="@Url.Action("Index", "Tarefas")">&laquo; Tarefas</a></p>
+    </div>
+
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeTarefa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoTarefa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataTarefa)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeTarefa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescricaoTarefa)
+                </td>
+                <td>
+                    @item.DataTarefa.ToString("dd/MM/yyyy")
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Página Inicial";
+}
+
+<div class="conteudo">
+    <div class="jumbotron">
+        <h1>Olá!</h1>
+        <p class="lead">Bem vindo ao Sistema de Controle de Tarefas UNIP. </p>
+        <p><a class="btn btn-info" href="@Url.Action("About", "Home")">Saiba mais &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Suas tarefas organizadas!</h2>
+            <p>
+                Com esse simples e eficiente sistema, você terá um melhor controle sobre a entrega de suas tarefas, o sistema lhe avisará quando uma tarefa estiver com a data vencida.
+                <br />
+                Cadastre suas tarefas e se organize de maneira rapida e prática e melhorando sua produção!
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Gerenciar tarefas</h2>
+            <p>
+                Ver, cadastrar, editar e remover suas tarefas no sistema.
+            </p>
+            <p><a class="btn btn-info" href="@Url.Action("Index", "Tarefas")">Tarefas &raquo;</a></p>
+        </div> @ViewBag.Message
+        <div class="col-md-4">
+            <h2>Avisos</h2>
+            <p><a class="@ViewBag.CSSentregar" href="Tarefas/Entregar">@ViewBag.QntEntregar tarefa(s) para entregar hoje</a></p>
+            <p><a class="@ViewBag.CSSatrasado" href="Tarefas/Atrasadas">@ViewBag.QntAtrasadas tarefa(s) atrasada(s)</a></p>
+        </div>
+    </div>
+</div>
